@@ -1,0 +1,1688 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+/* generic rules */
+
+html, body{
+    scroll-behavior: smooth;
+}
+
+body, body *{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    --light-color:#EAD1C0;
+    --footer-color:#FCF9F8;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(251, 249, 249);
+    overflow-x: hidden;
+}
+
+a{
+    font-weight: bold;
+    color: black;
+}
+
+a:hover{
+    cursor: pointer;
+}
+
+a:visited{
+    color: black;
+}
+
+input{
+    border-radius: 10px;
+    height: 35px;
+    transition: 0.3s;
+    border: 2px solid black;
+}
+
+form input:hover{
+    color: black;
+    background-color: #f6f3f2;
+    border: solid black 2px;
+}
+
+.light-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border: 2px solid black;
+    transition: 0.2s;
+}
+
+.dark-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    border: 2px solid var(--light-color);
+    transition: 0.2s;
+}
+
+input:hover , .sub:hover, .light-button:hover, .dark-button:hover{
+    cursor: pointer;
+    background-color: black;
+    color: var(--light-color);
+    border: 2px solid var(--light-color);
+}
+
+textarea{
+    border-radius: 10px;
+    border: 2px solid black;
+}
+
+.circle-loading{
+    position: fixed;
+    top: 90vh;
+    right:20px;
+    z-index: 5;
+    width: 60px;
+    height: 60px;
+    background-color: grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 75px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.circle-inside{
+    width: 90%;
+    height: 90%;
+    background-color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 75px;
+    font-size: 30px;
+}
+
+/* Header */
+
+header{
+    background-color: var(--light-color);
+    width: 100%;
+    height: 100px;
+    box-shadow: 0px 2px 2px 0px rgb(132, 132, 132);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: 0.3s;
+}
+
+.index-header{
+    background-color: var(--light-color);
+    transition: 0.3s;
+    animation: colorChangeIndex 2s forwards;
+}
+
+.qsje-header{
+    animation: colorChangeAlt 2s forwards;
+}
+
+.main-header{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0;
+    max-width: 405px;
+}
+
+.logo a{
+    width: 20%;
+}
+
+.logo img{
+    width: 100%;
+    transition: 1s;
+}
+
+.logo img:hover{
+    transform: rotate(-45deg);
+    transition: 1s;
+}
+
+.logo h1{
+    width:75%;
+    font-size: 25px;
+    text-transform: uppercase;
+}
+
+.en-tete{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+
+.nav{
+    width: 25%;
+    min-width: 290px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-text-bloc{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+.nav-text-bloc > *{
+    width: 100%;
+}
+
+.underline-nav{
+    background-color: black;
+    width: 100%;
+    height: 2px;
+    position: relative;
+    left: -100%;
+    visibility: hidden;
+}
+
+.animation-underline-nav{
+    position: relative;
+    animation: animation-underline-nav 0.2s forwards;
+}
+
+.remove-animation-underline-nav{
+    position: relative;
+    animation: remove-animation-underline-nav 0.2s forwards;
+}
+
+.nav a{
+    transition:0.2s;
+    width: 100%;
+    text-align: center;
+    transition: 1s;
+}
+
+/* main */
+
+.main{
+    width: 100%;
+    background-color: rgb(251, 249, 249);
+    margin: auto;
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* page header */
+
+.header-main{
+    width: 100%;
+    height: calc(70vh - 100px);
+    background-image: url('../assets/img/images/juriste-Paris.webp');
+    background-size:cover;
+    background-repeat: no-repeat;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    
+}
+
+/* header page qui suis je */
+
+.header-main-2{
+    width: 100%;
+    height: calc(70vh - 100px);
+    background-image: url('../assets/img/images/conseillere-droit.webp');
+    background-size:cover;
+    background-repeat: no-repeat;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    
+}
+
+/* ------------------------------- */
+
+/* header page contact */
+
+.header-main-3{
+    width: 100%;
+    height: calc(70vh - 100px);
+    background-image: url('../assets/img/images/contact.webp');
+    background-size:cover;
+    background-repeat: no-repeat;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    
+}
+
+/* ------------------------------- */
+
+/* formulaire page contact */
+
+.form-header{
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    overflow-y: hidden;
+}
+
+.form-header h2{
+    font-size: 30px;
+    position: relative;
+    top: -100%;
+}
+
+.form-header p{
+    width: 50%;
+    position: relative;
+    bottom: -100%;
+}
+
+.animation-form-header{
+    position: relative;
+    animation: animation-form-header 1s forwards;
+}
+
+.animation-form-header-para{
+    position: relative;
+    animation: animation-form-header-para 1s forwards;
+}
+
+.form-container{
+    width: 100%;
+    height:500px;
+    background-color: var(--light-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 50%;
+    max-width: 724px;
+    height: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.champ input{
+    width: 150px;
+    height: 20px;
+}
+
+.champ input::placeholder{
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+.champ{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+    height: 50px;
+}
+
+.telephone{
+    width: 45%;
+}
+
+.demande{
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 250px;
+}
+
+.demande textarea{
+    width: 100% ;
+}
+
+form input{
+    width: 100px;
+}
+
+.sub{
+    margin: auto;
+}
+
+/* ------------------------- */
+
+/* horaires */
+
+.coord-contain{
+    width: 50%;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.coord{
+    width: calc(50% - 2px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    left: -100%;
+    font-weight: bold;
+}
+
+.animation-coord{
+    position: relative;
+    animation: animation-coord 1s forwards;
+}
+
+.coord-line{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    text-align: right;
+}
+
+.coord-line p{
+    font-size: 15px;
+    max-width: 80%;
+}
+
+.coord-line i{
+    font-size: 25px;
+}
+
+.separation{
+    background-color: black;
+    width: 4px;
+    height: 80%;
+    position: relative;
+    right: 2px;
+}
+
+.horaires{
+    width: calc(50% - 2px);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: -100%;
+    font-weight: bold;
+}
+
+.animation-horaires{
+    position: relative;
+    animation: animation-horaires 1s forwards;
+}
+
+.day{
+    display: flex;
+    width: 75%;
+    justify-content: space-between;
+}
+
+/* --------------------------- */
+.mask-header{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.584);
+}
+
+.header-title{
+    color: white;
+    width: 600px;
+    height: auto;
+    height: auto;
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+    position: absolute;
+    top:250px;
+    font-family: 'Cinzel', serif;
+}
+
+/* icon bloc */
+
+.icons-bloc {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 350px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.icons-bloc > div{
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 100px;
+}
+
+.check{
+    position: relative;
+    left: -100%;
+}
+
+.home-protect{
+    position: relative;
+    bottom: -100%;
+}
+
+.justice{
+    position: relative;
+    right: -100%;
+}
+
+.icons-bloc i{
+    color: black;
+    font-size: 100px;
+}
+
+.icons-bloc p{
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+
+.anim-left{
+    position: relative;
+    animation: anim-left 1s forwards;
+}
+
+.remove-anim-left{
+    position: relative;
+    animation: remove-anim-left 1s forwards ;
+}
+
+.anim-up{
+    position: relative;
+    animation: anim-up 1s forwards;
+}
+
+.remove-anim-up{
+    position: relative;
+    animation: remove-anim-up 1s forwards;
+}
+
+.anim-right{
+    position: relative;
+    animation: anim-right 1s forwards;
+}
+
+.remove-anim-right{
+    position: relative;
+    animation: remove-anim-right 2s forwards;
+}
+/* bloc biographie page qui suis je */
+
+.bio{
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    overflow-x: hidden;
+    background-color: #e1d8d3
+}
+
+.biography, .illustration{
+    width: 50%;
+    height: 100%;
+}
+
+.biography{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #e1d8d3;
+    position: relative;
+    left: -100%;
+}
+
+.animation-biography{
+    position: relative;
+    animation: animation-biography 2s forwards;
+}
+
+.biography p{
+    width: 80%;
+}
+
+.illustration{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: hidden;
+}
+
+.bloc-image-bio, .contact-bio{
+    height: 50%;
+}
+
+.bloc-image-bio{
+    width: 100%;
+    height: 50%;
+    background-image: url('../assets/img/images/droit-juriste.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    top: -100%;
+}
+
+.animation-bloc-image-bio{
+    position: relative;
+    animation: animation-bloc-image-bio 2s forwards;
+}
+
+.contact-bio{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: var(--light-color);
+    position: relative;
+    bottom: -100%;
+}
+
+.animation-contact-bio{
+    position: relative;
+    animation: animation-contact-bio 2s forwards;
+}
+
+.contact-bio h3{
+    text-align: center;
+    font-size: 30px;
+    width: 80%;
+}
+
+/* ----------------------------------- */
+
+/* bloc contenu */
+
+.bloc-contenu{
+    width: 80%;
+    height: 500px;
+    box-shadow: 6px 20px 50px 4px rgb(132, 132, 132);
+    margin-bottom: 50px;
+    border-radius: 0px;
+    display: flex;
+    justify-content: center;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.bloc-contenu-animation{
+    position: relative;
+    animation: bloc-contenu-animation 2s forwards;
+}
+
+.bloc-contenu-animation2{
+    position: relative;
+    animation: bloc-contenu-animation2 2s forwards; 
+}
+
+.bloc-contenu-1{
+    position: relative;
+    left: -100%;
+}
+
+.bloc-contenu-2{
+    position: relative;
+    right: -100%;
+}
+
+.img-zone-1{
+    background-image: url('../assets/img/images/juriste-conseils.webp');
+}
+
+.img-zone-2{
+    background-image: url('../assets/img/images/expertise-loi.webp');
+}
+
+.img-zone{
+    width: 45%;
+    background-size: cover;
+    background-position: center;
+}
+
+.text-zone{
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text-zone-container{
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-zone-container h3{
+    width: 100%;
+    font-size: 30px;
+}
+
+.text-zone p{
+    width: 100%;
+}
+
+.dark-button{
+    background-color: var(--light-color);
+    width: 150px;
+    height: 35px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: solid black 2px;
+}
+
+.light-button{
+    background-color:white;
+    width: 150px;
+    height: 35px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.bloc-contenu-2{
+    background-color: var(--light-color);
+    margin-bottom: 50px;
+}
+
+
+/* footer */
+
+footer{
+    background-color: var(--footer-color);
+    width: 100%;
+    height:250px;
+    /* box-shadow: 2px 0px 0px 2px rgb(132, 132, 132); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    padding-top: 50px;
+}
+
+.foot-index{
+    background-color: var(--light-color);
+}
+
+footer ul{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main-footer{
+    width: 80%;
+    height:50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+
+.adress{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 30%;
+    height: 100%;
+}
+
+.adress li{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-footer{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-footer a{
+    width: 35%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.social{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.social i{
+    font-size: 30px;
+    margin-right: 10px;
+    font-weight: lighter;
+}
+
+.dev-part a{
+    text-decoration: underline;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.dev-part a:hover{
+    cursor: pointer;
+}
+
+.dev-part p{
+    margin-top: 25px;
+    margin-bottom: 50px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+/* pages info & error */
+.wrapper-info{
+    width: 100%;
+    height: 100vh;
+    background-color: azure;
+    background-image: url(../assets/img/images/droit-juriste-floujpg.webp);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info{
+    width: 50%;
+    height: 50%;
+    border-radius: 15px;
+    background-color: var(--light-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.info p, .info a{
+    width: 80%;
+    min-height:50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.info a{
+    text-decoration: underline;
+}
+
+/* form admin */
+
+.wrapper-form-admin{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-form-admin *{
+    margin: auto;
+}
+
+.container-form-admin{
+    width: 550px;
+    height: 291px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-color);
+    border: 2px solid black;
+}
+
+
+.title-admin{
+    width: 80%;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.form-admin{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 200px;
+    margin: auto;
+}
+
+.line-form-admin{
+    width: 90%;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.line-form-admin input{
+    width: 40%;
+    height: 25px;
+}
+
+/* infos demandes */
+
+.admin-input{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.body-alt-list{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow-x: visible;
+    min-height:100vh;
+    background-image: url('../assets/img/images/droit-juriste-floujpg.webp');
+    background-size: cover;
+}
+
+.body-alt-list h2{
+    color: aliceblue;
+}
+
+.disconnect-wrap{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 200px;
+    position: absolute;
+    top:20px;
+}
+
+
+
+.wrap-list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contain-demandes-list{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.line-demandes-list{
+    background-color: var(--light-color);
+    width: 100%;
+    height: auto;
+}
+
+.intitules p{
+    color: white;
+}
+
+.line-demandes-list,.intitules{
+    min-height: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: visible;
+    border:solid black 1px;
+}
+
+.form-list{
+    max-width: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+    min-height: 150px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.form-list p,.div-inv,.intitules p{
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.form-list p{
+    min-height:100px;
+}
+
+.date-list{
+    width: 200px;
+}
+
+.prenom-list,.nom-list,.tel-list{
+    width:150px;
+}
+
+.mail-list,.rs-list{
+    width:250px;
+}
+
+.demande-list{
+    width:500px;
+    max-width: 500px;
+    min-height: 20px;
+    overflow-wrap:anywhere;
+    overflow-y: hidden;
+}
+
+.div-inv{
+    width: 100px;
+    overflow-x: hidden;
+}
+
+.supr{
+    width: 100px;
+    text-align: center;
+}
+
+.valide{
+    width: 25px;
+    height: 25px;
+    margin-right: 2px;
+    background-color: rgb(7, 7, 7);
+    border-color: white;
+    color: aliceblue;
+    border-radius: 25px;
+}
+
+.valide:hover{
+    background-color: firebrick;
+    border-color: white;
+    color: aliceblue;
+}
+
+.input-inv{
+    width: 0px;
+    height:0px;
+    visibility: hidden;
+}
+
+/* media queries */
+
+@media screen and (min-width : 1300px){
+    .logo img{
+        width: 86.44px;
+    }
+    .header-title{
+        top:300px;
+    }
+}
+
+@media screen and (max-width:1650px){
+    .body-alt-list{
+        width: 1650px;
+    }
+}
+
+@media screen and (max-width : 1557px){
+    .header-main{
+        background-position: center;
+        /* height: auto; */
+    }
+
+}
+
+@media screen and (max-width : 1000px) {
+
+    .main-header{
+        width: 95%;
+    }
+
+    .nav{
+        font-size: 12px;
+    }
+
+    .icons-bloc i {
+        font-size: 60px;
+    }
+
+    .bloc-contenu{
+        height: 600px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .text-zone{
+        width: 100%;
+        height: 50%;
+        order: 1;
+    }
+
+
+    .img-zone{
+        width: 100%;
+        height: 50%;
+        order: 0;
+    }
+
+    .form-container{
+        width: 100%;
+        height: 700px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bloc-contenu-1{
+        left: 0;
+    }
+
+    .bloc-contenu-2{
+        right: 0;
+    }
+
+    .bloc-contenu-animation{
+        animation: none;
+    }
+
+    .bloc-contenu-animation2{
+        animation: none;
+    }
+
+    .circle-loading{
+        visibility: hidden;
+    };
+
+    form{
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 90%;
+        max-width: 712.57px;
+        height: 100%;
+        justify-content: space-evenly;
+    }
+
+    .champ{
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .sub{
+        margin: 0;
+    }
+
+    .coord-contain{
+        flex-direction: column;
+        justify-content: space-evenly;
+        width: 70%;
+        max-width: 100%;
+        height: 600px;
+    }
+
+    .coord{
+        width: 70%;
+        order:1;
+    }
+
+    .coord-line p{
+        width: 150px;
+        text-align: left;
+    }
+
+    .separation{
+        display: none;
+    }
+
+    .horaires{
+        width: 70%;
+        order:0;
+        justify-content: space-evenly;
+        margin-top: 45px;
+    }
+
+    .coord-line{
+        width: 250px;
+        justify-content: space-evenly;
+    }
+
+
+    
+}
+
+@media screen and (max-width : 750px){
+
+    .en-tete{
+        width: 40%;
+    }
+
+    h1{
+        display: none;
+    }
+    .main-header{
+        width: 90%;
+    }
+
+    .logo{
+
+        width: 30%;
+    }
+
+    .logo img{
+        width: 80px;
+    }
+
+    a,li,p{
+        font-size: 12px;
+    }
+
+    .header-title{
+        font-size: 25px;
+        width: 70%;
+    }
+
+    .nav{
+        width: 30%;
+    }
+
+    .icons-bloc{
+        height: 200px;
+    }
+
+    .icons-bloc p{
+        font-size: 12px;   
+    }
+
+    .contact-bio h3{
+        font-size: 30px;
+    }
+}
+
+@media screen and (min-width:500px){
+    .line-form-admin{
+        width: 70%;
+    }
+    .line-form-admin label{
+        margin-left: 15px;
+    }
+    .line-form-admin input{
+        margin-right: 15px;
+    }
+}
+
+@media screen and (max-width:500px){
+    h1{
+        font-size: 20px;
+    }
+
+    .logo{
+        width: 35%;
+    }
+    .nav{
+        width: 35%;
+    }
+
+    .wrapper-form-admin{
+        height: 100vh;
+        background-color: var(--light-color);
+    }
+
+    .container-form-admin{
+        width: 100%;
+        height: 100vh;
+        border-radius: 0px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        background-color: var(--light-color);
+        border: 0px solid black;
+    }
+
+    .form-admin{
+        margin-bottom: 30vh;
+    }
+
+    .title-admin{
+        height:80px;
+    }
+
+    .line-form-admin{
+        flex-direction: column;
+    }
+
+    .line-form-admin input{
+        width: 80%;
+    }
+
+}
+
+@media screen and (max-width : 450px){
+    
+    .logo{
+        width: 20%;
+    }
+
+    .logo img{
+        width: 50px;
+    }
+    
+    .en-tete{
+        display: none;
+    }
+
+    h1{
+        display: none;
+    }
+
+    .nav{
+        width: 80%;
+        
+        min-width: 200px;
+    }
+
+    .icons-bloc{
+        width: 100%;
+        height: 600px;
+        flex-direction: column;
+    }
+
+    .icons-bloc i{
+        font-size: 40px;
+    }
+
+    .icons-bloc p{
+        font-size: 12px;   
+    }
+
+    .bloc-contenu{
+        width: 100%;
+        border-radius: 0px;
+        height: 800px;
+        flex-direction: column;
+        align-items: center;
+        box-shadow: none;
+    }
+
+    .bloc-contenu-2{
+        margin-bottom: 0;
+    }
+
+    .text-zone{
+        width: 100%;
+        height: 50%;
+        order: 1;
+    }
+
+    .img-zone{
+        width: 100%;
+        height: 50%;
+        order: 0;
+    }
+
+    .bio{
+        flex-direction: column;
+        height: 1250px;
+    }
+
+    .biography{
+        width: 100%;
+        height: 70%;
+    }
+
+    .illustration{
+        width: 100%;
+        height: 30%;
+    }
+
+    .illustration h3{
+        font-size: 18px;
+    }
+
+    .form-header{
+        height: 400px;
+    }
+
+    .form-header h2{
+        font-size: 20px;
+    }
+
+    .form-header p{
+        width: 80%;
+    }
+
+    footer{
+        box-shadow: none;
+        border-top: 1px solid black;
+        height: 400px;
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+    }
+
+    .main-footer{
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        height: 90%;
+        text-align: center;
+    } 
+
+    .main-footer > *{
+        width: 100%;
+    }
+
+    .main-footer div ul{
+        
+        width: 100%;
+        
+    }
+
+    .main-footer div ul li, .main-footer div > a{
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .nav-footer{
+        order:0;
+    }
+
+    .adress{
+        order: 1;
+    }
+
+    .social{
+        align-items: center;
+        justify-content: center;
+        order: 2;
+    }
+
+    .coord-contain{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width : 260px){
+
+    body{
+       min-width: 256px; 
+    }
+
+    .form-header h2{
+        font-size: 12px;
+        width: 80%;
+    }
+
+    .logo img{
+        width: 60px;
+    }
+
+    .nav{
+        flex-direction: column;
+        height: 40%;
+    }
+
+
+    .bloc-contenu{
+        height: 100vh;
+    }
+
+    .bio{
+        flex-direction: column;
+        height: 1500px;
+    }
+
+    .biography p{
+        font-size: 10px;
+    }
+
+    .illustration h3{
+        font-size: 15px;
+    }
+
+    .coord{
+        width: 100%;
+    }
+
+    .horaires{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width : 156px){
+    .logo{
+        display: none;
+    }
+
+    .nav{
+        width: 95%;
+        margin: auto;
+    }
+
+    .bio{
+        height: 3000px;
+    }
+
+    .header-title{
+        font-size: 10px;
+    }
+
+    .bloc-image-bio{
+        display: none;
+    }
+
+    .biography{
+        height: 90%;
+    }
+
+    .illustration{
+        height: 10%;
+    }
+
+    .illustration h3{
+        display: none;
+    }
+
+    .illustration input{
+        width: 95%;
+        height: 30px;
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-height : 850px){
+    .header-main h2, .header-main-2 h2{
+        top:35%;
+    }
+}
+
+/* header bckgd color animation */
+
+@keyframes colorChangeIndex{
+    0%{background-color: var(--footer-color);}
+    100%{background-color: var(--light-color);}
+}
+
+@keyframes colorChangeAlt{
+    0%{background-color: var(--light-color);}
+    100%{background-color: var(--footer-color);}
+}
+
+/* icons index animation */
+
+@keyframes anim-left{
+    0%{left: -100%;}
+    100%{left:0%;}
+}
+
+@keyframes remove-anim-left{
+    0%{left: 0%;}
+    100%{left:-100%;}
+}
+
+@keyframes anim-up{
+    0%{bottom: -100%;}
+    100%{bottom:0%;}
+}
+
+@keyframes remove-anim-up{
+    0%{bottom: 0%;}
+    100%{bottom:-100%;}
+}
+
+@keyframes anim-right{
+    0%{right: -100%;}
+    100%{right:0%;}
+}
+
+@keyframes remove-anim-right{
+    0%{right: 0%;}
+    100%{right:-100%;}
+}
+
+@keyframes bloc-contenu-animation{
+    100%{transform: translateX(125%);}
+}
+
+@keyframes bloc-contenu-animation2{
+    100%{transform: translateX(-125%);}
+}
+
+@keyframes animation-biography{
+    0%{left: -100%;}
+    100%{left:0%;}
+}
+
+@keyframes animation-bloc-image-bio{
+    0%{top: -100%;}
+    100%{top:0%;}
+}
+
+@keyframes animation-contact-bio{
+    0%{bottom: -100%;}
+    100%{bottom:0%;}
+}
+
+@keyframes animation-form-header{
+    0%{top: -100%;}
+    100%{top:0%;}
+}
+
+@keyframes animation-form-header-para{
+    0%{bottom: -100%;}
+    100%{bottom:0%;}
+}
+
+@keyframes animation-coord{
+    0%{left: -100%;}
+    100%{left:0%;}
+}
+
+@keyframes animation-horaires{
+    0%{right: -100%;}
+    100%{right:0%;}
+}
+
+@keyframes animation-underline-nav{
+    0%{left: -100%;}
+    100%{left:0%;}
+}
+
+@keyframes remove-animation-underline-nav{
+    0%{left: 0%;}
+    100%{left:-100%;}
+}
+
+
+
+
